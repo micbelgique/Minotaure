@@ -21,8 +21,15 @@ public class UITimerDisplayer : MonoBehaviour {
         int seconds = (int)m_engine.GetCurrentTimer();
         TimeSpan timeSpan = TimeSpan.FromSeconds(seconds);
         string timeText = string.Format("{0:D2}:{1:D2}", timeSpan.Minutes, timeSpan.Seconds);
-
-        m_timerText.SetText(timeText);
+        if (GameEngine.ISGAMEON)
+        {
+            m_timerText.SetText(timeText);
+        }
+        else
+        {
+            m_timerText.SetText("");
+        }
+        
 	}
 
     private GameEngine m_engine;

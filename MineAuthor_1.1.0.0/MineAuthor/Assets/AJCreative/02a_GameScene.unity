@@ -10244,6 +10244,71 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224612113486987446, guid: b6b31a32c54c5b84e8d73ee967c3fbe3,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.26853502
+      objectReference: {fileID: 0}
+    - target: {fileID: 224612113486987446, guid: b6b31a32c54c5b84e8d73ee967c3fbe3,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9627577
+      objectReference: {fileID: 0}
+    - target: {fileID: 224612113486987446, guid: b6b31a32c54c5b84e8d73ee967c3fbe3,
+        type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 31.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 224612113486987446, guid: b6b31a32c54c5b84e8d73ee967c3fbe3,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.008439045
+      objectReference: {fileID: 0}
+    - target: {fileID: 224612113486987446, guid: b6b31a32c54c5b84e8d73ee967c3fbe3,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.03025585
+      objectReference: {fileID: 0}
+    - target: {fileID: 224612113486987446, guid: b6b31a32c54c5b84e8d73ee967c3fbe3,
+        type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224612113486987446, guid: b6b31a32c54c5b84e8d73ee967c3fbe3,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 26.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224612113486987446, guid: b6b31a32c54c5b84e8d73ee967c3fbe3,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 114815868052256686, guid: b6b31a32c54c5b84e8d73ee967c3fbe3,
+        type: 2}
+      propertyPath: m_fontSize
+      value: 8.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114815868052256686, guid: b6b31a32c54c5b84e8d73ee967c3fbe3,
+        type: 2}
+      propertyPath: m_fontSizeBase
+      value: 8.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224612113486987446, guid: b6b31a32c54c5b84e8d73ee967c3fbe3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.1397
+      objectReference: {fileID: 0}
+    - target: {fileID: 224612113486987446, guid: b6b31a32c54c5b84e8d73ee967c3fbe3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0284
+      objectReference: {fileID: 0}
+    - target: {fileID: 224612113486987446, guid: b6b31a32c54c5b84e8d73ee967c3fbe3,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.2432
+      objectReference: {fileID: 0}
     - target: {fileID: 1930488661366888, guid: b6b31a32c54c5b84e8d73ee967c3fbe3, type: 2}
       propertyPath: m_IsActive
       value: 0
