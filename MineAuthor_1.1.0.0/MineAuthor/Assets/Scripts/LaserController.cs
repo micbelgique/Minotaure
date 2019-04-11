@@ -120,16 +120,19 @@ public class LaserController : MonoBehaviour {
                     //Debug.Log("Centres = " + IndicatorPosition);
 
                     bool visible = getCellIndicatorVisibility(IndicatorPosition);
-                    print(visible);
+                    
                     bool flagged = GetCellFlagStatus(IndicatorPosition);
-                    int minevalue = getCellMineNeighbourValue(IndicatorPosition);
+                    
 
                     //Select Button Interaction
                     if (!SelectWasPressed && interactionSourceState.selectPressed)
                     {
                         
-                        if (visible == false)// && !flagged)
+                        
+                        print("visible:"+visible + " - "+ "Flagged: "+ flagged);
+                        if (visible == false && flagged == false)
                         {
+                            int minevalue = RevealCell(IndicatorPosition);
                             print("pressed");
                             if (minevalue == -1)
                             {
@@ -167,38 +170,44 @@ public class LaserController : MonoBehaviour {
                                 MineTextindicator.transform.GetComponent<TextMesh>().text = minevalue.ToString();
                                 instList.Add(MineTextindicator);
 
-                                gameEngine.checkCell(IndicatorPosition.z, -IndicatorPosition.x);
+                                //gameEngine.checkCell(IndicatorPosition.z, -IndicatorPosition.x);
                             }
                         }
                     }
-                    //if (!ThumbStickWasPressed && interactionSourceState.thumbstickPressed)
-                    //{
-                    //    if (visible) break;
-                    //    if (flagged)
-                    //    {
-                    //        //Unflag
-                    //        gameEngine.UnflagCell(IndicatorPosition.z, -IndicatorPosition.x);                            
-                    //        foreach(GameObject go in instList)
-                    //        {
-                    //            if(go.name == "flag_" + IndicatorPosition.x + IndicatorPosition.y + IndicatorPosition.z)
-                    //            {
-                    //                instList.Remove(go);
-                    //                Destroy(go);
-                    //                break;
-                    //            }
-                    //        }                          
-
-                    //    }
-                    //    else
-                    //    {
-                    //        //Flag
-                    //        GameObject flag = Instantiate(m_flagPrefab, IndicatorPosition, Quaternion.identity);
-                    //        flag.name = "flag_" + IndicatorPosition.x + IndicatorPosition.y + IndicatorPosition.z;
-                    //        instList.Add(flag);
-                    //        gameEngine.FlagCell(IndicatorPosition.z, -IndicatorPosition.x);
-                    //    }
+                    if (!ThumbStickWasPressed && interactionSourceState.thumbstickPressed)
+                    {
+                        if (visible)
+                        {
+                            print("visible");
+                            break;
+                        }
                         
-                    //}
+                        if (flagged)
+                        {
+                            //Unflag
+                            print("Unflagged");
+                            gameEngine.UnflagCell(IndicatorPosition.z, -IndicatorPosition.x);
+                            foreach (GameObject go in instList)
+                            {
+                                if (go.name == "flag_" + ((int)IndicatorPosition.z).ToString()+(-1*IndicatorPosition.x).ToString())
+                                {
+                                    instList.Remove(go);
+                                    Destroy(go);
+                                    break;
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                            //Flag
+                            GameObject flag = Instantiate(m_flagPrefab, IndicatorPosition, Quaternion.identity);
+                            flag.name = "flag_" + ((int)IndicatorPosition.z).ToString() + (-1 * IndicatorPosition.x).ToString();
+                            instList.Add(flag);
+                            gameEngine.FlagCell(IndicatorPosition.z, -IndicatorPosition.x);
+                        }
+
+                    }
                     ThumbStickWasPressed = interactionSourceState.thumbstickPressed;
                     SelectWasPressed = interactionSourceState.selectPressed;
                 }                   
@@ -294,7 +303,7 @@ public class LaserController : MonoBehaviour {
 
     }
 
-    public int getCellMineNeighbourValue(Vector3 initialPosition)
+    public int RevealCell(Vector3 initialPosition)
     {
         return gameEngine.checkCell(initialPosition.z, -initialPosition.x);
     }

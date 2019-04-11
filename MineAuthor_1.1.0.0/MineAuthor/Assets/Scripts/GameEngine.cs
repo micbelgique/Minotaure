@@ -129,6 +129,7 @@ public class GameEngine : MonoBehaviour
     }
     public CellState getCellState(float x, float y)
     {
+        //Debug.Log("getCellState "+gameService.getCellState(x, y));
         return this.gameService.getCellState(x,y);
     }
 
@@ -154,6 +155,7 @@ public class GameEngine : MonoBehaviour
 
     public bool isCellRevealed(float x, float y)
     {
+        
         return this.getCellState(x, y) == CellState.Revealed;
     }
     public bool isCellFlagged(float x, float y)
