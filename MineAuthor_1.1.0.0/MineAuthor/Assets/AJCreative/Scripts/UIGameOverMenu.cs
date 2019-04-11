@@ -11,10 +11,16 @@ namespace com.ajc.HIMineSweeper
 
         public string m_outOfTimeGameOverText;
         public string m_explosionGameOver;
+
+        private void Awake()
+        {
+            m_follow = GetComponent<SmoothFollowTarget>();
+        }
         // Use this for initialization
         void Start()
         {
             m_animator = GetComponent<Animator>();
+            gameObject.SetActive(false);
         }
 
         // Update is called once per frame
@@ -26,6 +32,7 @@ namespace com.ajc.HIMineSweeper
         public void Show(GameManager.GAMEOVERSTATE _context, float _delayInSeconds)
         {
             gameObject.SetActive(true);
+            m_follow.TeleportToPosition();
             switch (_context)
             {
                 case GameManager.GAMEOVERSTATE.OUTOFTIME:
@@ -43,6 +50,8 @@ namespace com.ajc.HIMineSweeper
             gameObject.SetActive(false);
         }
         private Animator m_animator;
+
+        private SmoothFollowTarget m_follow;
     }
 
 }

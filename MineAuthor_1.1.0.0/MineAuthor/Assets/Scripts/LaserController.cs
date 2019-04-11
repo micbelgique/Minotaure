@@ -8,6 +8,7 @@ using com.ajc.HIMineSweeper;
 
 public class LaserController : MonoBehaviour {
     public float m_laserDistance = 5;
+    public bool m_godMode = false;
     public LayerMask m_layerMask;
     public GameManager m_gameManager;
     public Collider terrainCollider;
@@ -100,16 +101,21 @@ public class LaserController : MonoBehaviour {
 
         if (GameEngine.ISGAMEON)
         {
-            Vector3 Position = getCellCenterPosition(Camera.main.transform.position);
-            int minev = getCellMineValue(Position);
-            if (minev == -1)            {
+            if(m_godMode == false)
+            {
+                Vector3 Position = getCellCenterPosition(Camera.main.transform.position);
+                int minev = getCellMineValue(Position);
+                if (minev == -1)
+                {
 
-                m_gameManager.GameOver(GameManager.GAMEOVERSTATE.EXPLOSION);
+                    m_gameManager.GameOver(GameManager.GAMEOVERSTATE.EXPLOSION);
 
-                GameObject explosion = Instantiate(ExplosionPrefab, Vector3.zero, Quaternion.identity);
-                explosion.transform.position = Position;
-                instList.Add(explosion);
+                    GameObject explosion = Instantiate(ExplosionPrefab, Vector3.zero, Quaternion.identity);
+                    explosion.transform.position = Position;
+                    instList.Add(explosion);
+                }
             }
+           
 
             if (allowInteraction)
             {
@@ -187,6 +193,7 @@ public class LaserController : MonoBehaviour {
                                 if (go.name == "flag_" + ((int)IndicatorPosition.z).ToString()+(-1*IndicatorPosition.x).ToString())
                                 {
                                     instList.Remove(go);
+                                    go.GetComponent<Flag>().Remove();
                                     Destroy(go);
                                     break;
                                 }

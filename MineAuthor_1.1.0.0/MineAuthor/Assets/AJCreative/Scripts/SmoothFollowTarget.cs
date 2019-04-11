@@ -36,6 +36,11 @@ namespace com.ajc.HIMineSweeper
             }
             
         }
+
+        public void TeleportToPosition()
+        {
+            m_transform.position = m_target.position + m_target.forward * m_distance*(1+0.2f);
+        }
         private Transform m_transform;
     }
 

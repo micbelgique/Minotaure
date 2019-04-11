@@ -16,7 +16,7 @@ namespace com.ajc.HIMineSweeper
         [Header("UI Elements")]
         public UIGameOverMenu m_gameOverMenu;
         public UIGameWinMenu m_gameWinMenu;
-
+        public UIMainMenu m_startMenu;
         public enum GAMEOVERSTATE { OUTOFTIME, EXPLOSION };
         // Use this for initialization
         void Start()
@@ -41,8 +41,8 @@ namespace com.ajc.HIMineSweeper
             m_engine.ReinitGame();
             m_controller.ResetGrid();
             m_controller.TeleportPlayerAtStartPosition();
-
-            StartGame();
+            m_startMenu.Show();
+            //StartGame();
         }
         public void GameOver(GAMEOVERSTATE _state)
         {
@@ -53,6 +53,7 @@ namespace com.ajc.HIMineSweeper
 
         public void GameWin()
         {
+            m_gameWinMenu.Show();
             m_engine.EndGame();
         }
     }

@@ -6,12 +6,16 @@ namespace com.ajc.HIMineSweeper
 {
     public class UIMainMenu : MonoBehaviour
     {
+        private void Awake()
+        {
+            m_follow = GetComponent<SmoothFollowTarget>();
+        }
 
         // Use this for initialization
         void Start()
         {
             m_animator = GetComponent<Animator>();
-            Show();
+            Invoke("Show",3);
         }
 
         // Update is called once per frame
@@ -33,9 +37,10 @@ namespace com.ajc.HIMineSweeper
         /// </summary>
         public void Show()
         {
+            m_follow.TeleportToPosition();
             m_animator.SetBool("HideBool", false);
         }
-
+        private SmoothFollowTarget m_follow;
         private Animator m_animator;
     }
 
