@@ -137,6 +137,16 @@ public class GameEngine : MonoBehaviour
         return this.gameService.checkCell(x, y);
     }
 
+    public void FlagCell(float x, float y)
+    {
+        this.gameService.FlagCell(x, y);
+    }
+
+    public void UnflagCell(float x, float y)
+    {
+        this.gameService.UnflagCell(x, y);
+    }
+
     public int checkMine(float x, float y)
     {
         return this.gameService.checkMine(x, y);
@@ -145,6 +155,10 @@ public class GameEngine : MonoBehaviour
     public bool isCellRevealed(float x, float y)
     {
         return this.getCellState(x, y) == CellState.Revealed;
+    }
+    public bool isCellFlagged(float x, float y)
+    {
+        return this.getCellState(x, y) == CellState.Flagged;
     }
 
     public void ReinitGame(bool _startGame=false)

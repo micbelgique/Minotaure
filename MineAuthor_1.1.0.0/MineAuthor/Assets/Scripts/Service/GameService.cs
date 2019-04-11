@@ -43,6 +43,16 @@ namespace Assets.Scripts.Service
             return cellValue;
         }
 
+        public void FlagCell(float x, float y)
+        {
+            this.grid.CellsArray[(int)x][(int)y].CellState = CellState.Flagged;
+        }
+
+        public void UnflagCell(float x, float y)
+        {
+            this.grid.CellsArray[(int)x][(int)y].CellState = CellState.Hidden;
+        }
+
         public int checkMine(float x, float y)
         {
             int cellValue = this.grid.CellsArray[(int)x][(int)y].CellValue;
