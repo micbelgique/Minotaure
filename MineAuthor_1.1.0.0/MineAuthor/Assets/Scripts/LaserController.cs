@@ -15,7 +15,9 @@ public class LaserController : MonoBehaviour {
     public GameObject IndicatorPrefab;
     public GameObject ExplosionPrefab;
     public GameObject TracePrefab;
+    public GameObject m_flagPrefab;
     public bool SelectWasPressed = false;
+    public bool ThumbStickWasPressed = false;
     public MixedRealityTeleport teleport;
     AudioSource clicsound;
     private float timer;
@@ -63,12 +65,14 @@ public class LaserController : MonoBehaviour {
     {
         var interactionSourceStates = InteractionManager.GetCurrentReading();
 
+        bool allowInteraction = false;
+
+        Vector3 newPosition = Vector3.zero ;
+        Quaternion newRotation = Quaternion.identity;
+
         // Draw Laser Pointer
         foreach (var interactionSourceState in interactionSourceStates)
         {
-            Vector3 newPosition;
-            Quaternion newRotation;
-
             if (interactionSourceState.sourcePose.TryGetPosition(out newPosition, InteractionSourceNode.Pointer) && ValidPosition(newPosition)
                 && interactionSourceState.sourcePose.TryGetRotation(out newRotation, InteractionSourceNode.Pointer) && ValidRotation(newRotation))
             {
@@ -78,37 +82,25 @@ public class LaserController : MonoBehaviour {
                     );
 
                 RaycastHit raycastHit;
-                //if (terrainCollider.Raycast(ray, out raycastHit, m_laserDistance))
-                //{
-                //    m_allowLaserDraw = true;
-                //    m_cursorPosition = raycastHit.point;
-                //}
-                //else
-                //{
-                //    m_cursorPosition = ray.GetPoint(m_laserDistance);
-                //    //m_allowLaserDraw = false;
-                //}
-
+                
                 if (Physics.Raycast(ray, out raycastHit, m_laserDistance, m_layerMask))
                 {
                     m_allowLaserDraw = true;
                     m_cursorPosition = raycastHit.point;
+                    allowInteraction = true;
                 }
                 else
                 {
                     m_cursorPosition = ray.GetPoint(m_laserDistance);
                     //m_allowLaserDraw = false;
+                    allowInteraction = false;
                 }
-
-
             }
         }
 
         if (GameEngine.ISGAMEON)
         {
-            
             Vector3 Position = getCellCenterPosition(Camera.main.transform.position);
-           
             int minev = getCellMineValue(Position);
             if (minev == -1)
             {
@@ -118,47 +110,36 @@ public class LaserController : MonoBehaviour {
                 GameObject explosion = Instantiate(ExplosionPrefab, Vector3.zero, Quaternion.identity);
                 explosion.transform.position = Position;
                 instList.Add(explosion);
-            }            
+            }
 
-            foreach (var interactionSourceState in interactionSourceStates)
+            if (allowInteraction)
             {
-                Vector3 newPosition, IndicatorPosition;
-                Quaternion newRotation;
-
-                if (interactionSourceState.thumbstickPressed) print("thumbstickPressed");
-
-
-                if (!SelectWasPressed
-                    && interactionSourceState.selectPressed
-                    && interactionSourceState.sourcePose.TryGetPosition(out newPosition, InteractionSourceNode.Pointer) && ValidPosition(newPosition)
-                    && interactionSourceState.sourcePose.TryGetRotation(out newRotation, InteractionSourceNode.Pointer) && ValidRotation(newRotation))
+                foreach (var interactionSourceState in interactionSourceStates)
                 {
-                    var ray = new Ray(
-                        ParentTransform.TransformPoint(newPosition),
-                        ParentTransform.TransformDirection(newRotation * Vector3.forward)
-                        );
+                    Vector3 IndicatorPosition = getCellCenterPosition(m_cursorPosition);
+                    //Debug.Log("Centres = " + IndicatorPosition);
 
-                    RaycastHit raycastHit;
-                    if (Physics.Raycast(ray, out raycastHit, m_laserDistance, m_layerMask))
+                    bool visible = getCellIndicatorVisibility(IndicatorPosition);
+                    
+                    bool flagged = GetCellFlagStatus(IndicatorPosition);
+                    
+
+                    //Select Button Interaction
+                    if (!SelectWasPressed && interactionSourceState.selectPressed)
                     {
-                        var cursorPos = raycastHit.point;
                         
-                        IndicatorPosition = getCellCenterPosition(cursorPos);
-                        //Debug.Log("Centres = " + IndicatorPosition);
-
-                        bool visible = getCellIndicatorVisibility(IndicatorPosition);
-                        int minevalue = getCellMineNeighbourValue(IndicatorPosition);
-                        //Debug.Log("Nb voisins = " + minevalue);
-
-                        //Debug.Log("Visible = " + visible);
-                        if (!visible)
+                        
+                        print("visible:"+visible + " - "+ "Flagged: "+ flagged);
+                        if (visible == false && flagged == false)
                         {
+                            int minevalue = RevealCell(IndicatorPosition);
+                            print("pressed");
                             if (minevalue == -1)
                             {
 
                                 // GameOver
                                 m_gameManager.GameOver(GameManager.GAMEOVERSTATE.EXPLOSION);
-                                
+
                                 //Instantiate Mine Prefab + Sound of Mine Activation
                                 //Show GameOver Menu (can be don evia GameEngine)
                                 GameObject explosion = Instantiate(ExplosionPrefab, Vector3.zero, Quaternion.identity);
@@ -189,15 +170,120 @@ public class LaserController : MonoBehaviour {
                                 MineTextindicator.transform.GetComponent<TextMesh>().text = minevalue.ToString();
                                 instList.Add(MineTextindicator);
 
-                                gameEngine.checkCell(IndicatorPosition.z, -IndicatorPosition.x);
+                                //gameEngine.checkCell(IndicatorPosition.z, -IndicatorPosition.x);
                             }
                         }
                     }
-                }
+                    if (!ThumbStickWasPressed && interactionSourceState.thumbstickPressed)
+                    {
+                        if (visible)
+                        {
+                            print("visible");
+                            break;
+                        }
+                        
+                        if (flagged)
+                        {
+                            //Unflag
+                            print("Unflagged");
+                            gameEngine.UnflagCell(IndicatorPosition.z, -IndicatorPosition.x);
+                            foreach (GameObject go in instList)
+                            {
+                                if (go.name == "flag_" + ((int)IndicatorPosition.z).ToString()+(-1*IndicatorPosition.x).ToString())
+                                {
+                                    instList.Remove(go);
+                                    Destroy(go);
+                                    break;
+                                }
+                            }
 
-                SelectWasPressed = interactionSourceState.selectPressed;
+                        }
+                        else
+                        {
+                            //Flag
+                            GameObject flag = Instantiate(m_flagPrefab, IndicatorPosition, Quaternion.identity);
+                            flag.name = "flag_" + ((int)IndicatorPosition.z).ToString() + (-1 * IndicatorPosition.x).ToString();
+                            instList.Add(flag);
+                            gameEngine.FlagCell(IndicatorPosition.z, -IndicatorPosition.x);
+                        }
+
+                    }
+                    ThumbStickWasPressed = interactionSourceState.thumbstickPressed;
+                    SelectWasPressed = interactionSourceState.selectPressed;
+                }                   
+                
             }
         }
+
+        
+                //if (!SelectWasPressed
+                //    && interactionSourceState.selectPressed
+                //    && interactionSourceState.sourcePose.TryGetPosition(out newPosition, InteractionSourceNode.Pointer) && ValidPosition(newPosition)
+                //    && interactionSourceState.sourcePose.TryGetRotation(out newRotation, InteractionSourceNode.Pointer) && ValidRotation(newRotation))
+                //{
+                //    var ray = new Ray(
+                //        ParentTransform.TransformPoint(newPosition),
+                //        ParentTransform.TransformDirection(newRotation * Vector3.forward)
+                //        );
+
+                //    RaycastHit raycastHit;
+                //    if (Physics.Raycast(ray, out raycastHit, m_laserDistance, m_layerMask))
+                //    {
+                //        var cursorPos = raycastHit.point;
+
+                //        IndicatorPosition = getCellCenterPosition(cursorPos);
+                //        //Debug.Log("Centres = " + IndicatorPosition);
+
+                //        bool visible = getCellIndicatorVisibility(IndicatorPosition);
+                //        int minevalue = getCellMineNeighbourValue(IndicatorPosition);
+                //        //Debug.Log("Nb voisins = " + minevalue);
+
+                //        //Debug.Log("Visible = " + visible);
+                //        if (!visible)
+                //        {
+                //            if (minevalue == -1)
+                //            {
+
+                //                // GameOver
+                //                m_gameManager.GameOver(GameManager.GAMEOVERSTATE.EXPLOSION);
+
+                //                //Instantiate Mine Prefab + Sound of Mine Activation
+                //                //Show GameOver Menu (can be don evia GameEngine)
+                //                GameObject explosion = Instantiate(ExplosionPrefab, Vector3.zero, Quaternion.identity);
+                //                explosion.transform.position = IndicatorPosition;
+                //                instList.Add(explosion);
+
+                //                GameObject trace = Instantiate(TracePrefab, Vector3.zero, Quaternion.identity);
+                //                trace.transform.Rotate(new Vector3(90.0f, 0.0f, 0.0f));
+                //                trace.transform.position = new Vector3(IndicatorPosition.x, IndicatorPosition.y + 0.1f, IndicatorPosition.z);
+                //                instList.Add(trace);
+                //            }
+                //            else if (minevalue == -2)
+                //            {
+                //                //Application.LoadLevel(Application.loadedLevel);
+                //                //teleport.SetWorldPosition(new Vector3(8.0f, 8.0f, 9.01f));
+                //                //Win
+                //                //gameEngine.ReinitGame();                                
+                //                m_gameManager.GameWin();
+
+                //            }
+                //            else if (minevalue != -3)
+                //            {
+                //                clicsound.Play();
+
+                //                GameObject MineTextindicator = Instantiate(IndicatorPrefab, Vector3.zero, Quaternion.identity);
+                //                MineTextindicator.transform.GetComponent<TextMesh>().transform.Rotate(new Vector3(90.0f, -90.0f, 0.0f));
+                //                MineTextindicator.transform.GetComponent<TextMesh>().transform.position = IndicatorPosition;
+                //                MineTextindicator.transform.GetComponent<TextMesh>().text = minevalue.ToString();
+                //                instList.Add(MineTextindicator);
+
+                //                gameEngine.checkCell(IndicatorPosition.z, -IndicatorPosition.x);
+                //            }
+                //        }
+                //    }
+                //}
+
+                //SelectWasPressed = interactionSourceState.selectPressed;
         
     }
 
@@ -217,7 +303,7 @@ public class LaserController : MonoBehaviour {
 
     }
 
-    public int getCellMineNeighbourValue(Vector3 initialPosition)
+    public int RevealCell(Vector3 initialPosition)
     {
         return gameEngine.checkCell(initialPosition.z, -initialPosition.x);
     }
@@ -230,6 +316,11 @@ public class LaserController : MonoBehaviour {
     public bool getCellIndicatorVisibility(Vector3 initialPosition)
     {
         return gameEngine.isCellRevealed(initialPosition.z, -initialPosition.x);
+    }
+
+    public bool GetCellFlagStatus(Vector3 initialPosition)
+    {
+        return gameEngine.isCellFlagged(initialPosition.z, -initialPosition.x);
     }
 
     // Update is called once per frame
