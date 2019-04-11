@@ -7,6 +7,8 @@ using HoloToolkit.Unity.InputModule;
 using com.ajc.HIMineSweeper;
 
 public class LaserController : MonoBehaviour {
+    public float m_laserDistance = 5;
+    public LayerMask m_layerMask;
     public GameManager m_gameManager;
     public Collider terrainCollider;
     public Transform ParentTransform;
@@ -76,14 +78,25 @@ public class LaserController : MonoBehaviour {
                     );
 
                 RaycastHit raycastHit;
-                if (terrainCollider.Raycast(ray, out raycastHit, 10))
+                //if (terrainCollider.Raycast(ray, out raycastHit, m_laserDistance))
+                //{
+                //    m_allowLaserDraw = true;
+                //    m_cursorPosition = raycastHit.point;
+                //}
+                //else
+                //{
+                //    m_cursorPosition = ray.GetPoint(m_laserDistance);
+                //    //m_allowLaserDraw = false;
+                //}
+
+                if (Physics.Raycast(ray, out raycastHit, m_laserDistance, m_layerMask))
                 {
                     m_allowLaserDraw = true;
                     m_cursorPosition = raycastHit.point;
                 }
                 else
                 {
-                    m_cursorPosition = ray.GetPoint(30);
+                    m_cursorPosition = ray.GetPoint(m_laserDistance);
                     //m_allowLaserDraw = false;
                 }
 
@@ -112,6 +125,9 @@ public class LaserController : MonoBehaviour {
                 Vector3 newPosition, IndicatorPosition;
                 Quaternion newRotation;
 
+                if (interactionSourceState.thumbstickPressed) print("thumbstickPressed");
+
+
                 if (!SelectWasPressed
                     && interactionSourceState.selectPressed
                     && interactionSourceState.sourcePose.TryGetPosition(out newPosition, InteractionSourceNode.Pointer) && ValidPosition(newPosition)
@@ -123,7 +139,7 @@ public class LaserController : MonoBehaviour {
                         );
 
                     RaycastHit raycastHit;
-                    if (terrainCollider.Raycast(ray, out raycastHit, 10))
+                    if (Physics.Raycast(ray, out raycastHit, m_laserDistance, m_layerMask))
                     {
                         var cursorPos = raycastHit.point;
                         
