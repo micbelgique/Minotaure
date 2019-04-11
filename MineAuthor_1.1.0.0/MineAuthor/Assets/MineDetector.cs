@@ -11,6 +11,7 @@ using UnityEngine;
 public class MineDetector : MonoBehaviour {
 
     public Transform m_laserStartPoint;
+    public Transform m_laserPointer;
 	// Use this for initialization
 	void Start () {
         m_lineRenderer = GetComponent<LineRenderer>();
@@ -20,9 +21,12 @@ public class MineDetector : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        DrawLine();
+
         if (GameEngine.ISGAMEON)
         {
             DrawLine();
+            
         }
 	}
 
@@ -32,6 +36,7 @@ public class MineDetector : MonoBehaviour {
         m_lineRenderer.positionCount = 2;
         m_lineRenderer.SetPosition(0, m_laserStartPoint.position);
         m_lineRenderer.SetPosition(1, m_controller.GetCursorPosition());
+        m_laserPointer.position = m_controller.GetCursorPosition();
     }
     private Transform m_transform;
     private LaserController m_controller;
