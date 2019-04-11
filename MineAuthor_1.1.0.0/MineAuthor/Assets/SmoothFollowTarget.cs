@@ -24,7 +24,17 @@ namespace com.ajc.HIMineSweeper
         void Update()
         {
             Vector3 targetedPosition = m_target.position + m_target.forward * m_distance;
-            m_transform.position = Vector3.Lerp(m_transform.position, targetedPosition, m_speed * Time.deltaTime);
+
+            if (m_lerpPosition)
+            {
+                
+                m_transform.position = Vector3.Lerp(m_transform.position, targetedPosition, m_speed * Time.deltaTime);
+            }
+            else
+            {
+                m_transform.position = targetedPosition;
+            }
+            
         }
         private Transform m_transform;
     }
