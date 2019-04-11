@@ -6858,7 +6858,7 @@ MonoBehaviour:
   m_engine: {fileID: 47817046}
   m_controller: {fileID: 1347101662}
   m_gameOverMenu: {fileID: 1363126498}
-  m_gameWinMenu: {fileID: 0}
+  m_gameWinMenu: {fileID: 2143153859}
 --- !u!1 &1350017806
 GameObject:
   m_ObjectHideFlags: 0
