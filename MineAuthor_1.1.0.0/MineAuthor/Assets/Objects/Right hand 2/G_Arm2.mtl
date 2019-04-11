@@ -1,0 +1,52 @@
+# Blender MTL File: 'G_Arm2.blend'
+# Material Count: 4
+
+newmtl DefaultMaterial.000
+Ns 92.156863
+Ka 0.050000 0.050000 0.050000
+Kd 0.600000 0.600000 0.600000
+Ks 0.600000 0.600000 0.600000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures\detector_df.png
+
+newmtl arm
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.119327 0.084691 0.058776
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures\fps_wrist_df.png
+map_Bump -bm 0.050000 textures\fps_wrist_nm.png
+map_Ns textures\fps_wrist_nm.png
+
+newmtl gloves
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures\fps_gloves_df.png
+map_Bump -bm 0.050000 textures\fps_gloves_nm.png
+map_Ns textures\fps_gloves_nm.png
+
+newmtl sleeve
+Ns 256.862745
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.039496 0.039496 0.039496
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures\fps_sleeve_df.png
+map_Bump -bm 0.050000 textures\fps_sleeve_nm.png
+map_Ns textures\fps_sleeve_nm.png
