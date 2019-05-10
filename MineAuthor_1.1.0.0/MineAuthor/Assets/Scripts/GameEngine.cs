@@ -86,7 +86,7 @@ public class GameEngine : MonoBehaviour
         gameService.startNewGame(20, 45, mineList, safeZone, targetZone, 0);
 
         Debug.Log(gameService.Grid.ToString());
-        initTimer(180);
+        initTimer(m_gameDurationInSeconds);
         
     }
 

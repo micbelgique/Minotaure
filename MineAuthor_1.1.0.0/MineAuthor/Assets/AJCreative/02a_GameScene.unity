@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa049ac82f7a52b4ea7d02f36e77b24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_gameManager: {fileID: 0}
+  m_gameManager: {fileID: 1347101664}
   m_gameDurationInSeconds: 180
   cellSize: {x: 1, y: 1}
 --- !u!4 &47817047

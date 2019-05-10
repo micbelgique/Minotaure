@@ -27,9 +27,7 @@ namespace com.ajc.HIMineSweeper
         {
             gameObject.SetActive(true);
             m_follow.TeleportToPosition();
-    
-
-    }
+        }
         public void Close()
         {
             gameObject.SetActive(false);
