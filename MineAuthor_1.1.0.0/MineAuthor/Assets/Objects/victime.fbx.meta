@@ -1,0 +1,493 @@
+fileFormatVersion: 2
+guid: 8a960a537b2e54d4393fda45cf7f88e4
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: 24_CivilianFemaleAliceHeadMIC_0.25_0_0
+    100002: 24_CivilianFemaleAliceLegsMIC_0.25_0_0
+    100004: 24_CivilianFemaleAliceTorsoMIC_0.25_0_0
+    100006: 25_CivilianFemaleAliceHairMIC_0.25_0_0
+    100008: 5_CivilianFemaleAliceEyeMIC_1_0_0
+    100010: arm left elbow
+    100012: arm left finger 1a
+    100014: arm left finger 1b
+    100016: arm left finger 1c
+    100018: arm left finger 2a
+    100020: arm left finger 2b
+    100022: arm left finger 2c
+    100024: arm left finger 3a
+    100026: arm left finger 3b
+    100028: arm left finger 3c
+    100030: arm left finger 4a
+    100032: arm left finger 4b
+    100034: arm left finger 4c
+    100036: arm left finger 5a
+    100038: arm left finger 5b
+    100040: arm left finger 5c
+    100042: arm left shoulder 1
+    100044: arm left shoulder 2
+    100046: arm left wrist
+    100048: arm right elbow
+    100050: arm right finger 1a
+    100052: arm right finger 1b
+    100054: arm right finger 1c
+    100056: arm right finger 2a
+    100058: arm right finger 2b
+    100060: arm right finger 2c
+    100062: arm right finger 3a
+    100064: arm right finger 3b
+    100066: arm right finger 3c
+    100068: arm right finger 4a
+    100070: arm right finger 4b
+    100072: arm right finger 4c
+    100074: arm right finger 5a
+    100076: arm right finger 5b
+    100078: arm right finger 5c
+    100080: arm right shoulder 1
+    100082: arm right shoulder 2
+    100084: arm right wrist
+    100086: Armature
+    100088: Camera
+    100090: head cheek left 1
+    100092: head cheek left 1_end
+    100094: head cheek left 2
+    100096: head cheek left 2_end
+    100098: head cheek left 3
+    100100: head cheek left 3_end
+    100102: head cheek left 4
+    100104: head cheek left 4_end
+    100106: head cheek left 5
+    100108: head cheek left 5_end
+    100110: head cheek right 1
+    100112: head cheek right 1_end
+    100114: head cheek right 2
+    100116: head cheek right 2_end
+    100118: head cheek right 3
+    100120: head cheek right 3_end
+    100122: head cheek right 4
+    100124: head cheek right 4_end
+    100126: head cheek right 5
+    100128: head cheek right 5_end
+    100130: head eyeball left
+    100132: head eyeball left_end
+    100134: head eyeball right
+    100136: head eyeball right_end
+    100138: head eyebrow left 1
+    100140: head eyebrow left 1_end
+    100142: head eyebrow left 2
+    100144: head eyebrow left 2_end
+    100146: head eyebrow left 3
+    100148: head eyebrow left 3_end
+    100150: head eyebrow right 1
+    100152: head eyebrow right 1_end
+    100154: head eyebrow right 2
+    100156: head eyebrow right 2_end
+    100158: head eyebrow right 3
+    100160: head eyebrow right 3_end
+    100162: head eyebrows middle
+    100164: head eyebrows middle_end
+    100166: head eyelid lower left
+    100168: head eyelid lower left_end
+    100170: head eyelid lower right
+    100172: head eyelid lower right_end
+    100174: head eyelid upper left
+    100176: head eyelid upper left_end
+    100178: head eyelid upper right
+    100180: head eyelid upper right_end
+    100182: head forehead left
+    100184: head forehead left_end
+    100186: head forehead right
+    100188: head forehead right_end
+    100190: head jaw
+    100192: head jaw_end
+    100194: head lip lower left
+    100196: head lip lower left_end
+    100198: head lip lower middle
+    100200: head lip lower middle_end
+    100202: head lip lower right
+    100204: head lip lower right_end
+    100206: head lip upper left
+    100208: head lip upper left_end
+    100210: head lip upper middle
+    100212: head lip upper middle_end
+    100214: head lip upper right
+    100216: head lip upper right_end
+    100218: head mouth corner left
+    100220: head mouth corner left_end
+    100222: head mouth corner right
+    100224: head mouth corner right_end
+    100226: head neck lower
+    100228: head neck upper
+    100230: head nose nostril left
+    100232: head nose nostril left_end
+    100234: head nose nostril right
+    100236: head nose nostril right_end
+    100238: head nose tip
+    100240: head nose tip_end
+    100242: head tongue 1
+    100244: head tongue 2
+    100246: head tongue 2_end
+    100248: Lamp
+    100250: leg left ankle
+    100252: leg left knee
+    100254: leg left thigh
+    100256: leg left toes
+    100258: leg right ankle
+    100260: leg right knee
+    100262: leg right thigh
+    100264: leg right toes
+    100266: root ground
+    100268: root hips
+    100270: spine lower
+    100272: spine middle
+    100274: spine shoulders
+    100276: spine upper
+    100278: unused bip01_headnub
+    100280: unused bip01_headnub_end
+    100282: unused bip01_l_finger0nub
+    100284: unused bip01_l_finger0nub_end
+    100286: unused bip01_l_finger1nub
+    100288: unused bip01_l_finger1nub_end
+    100290: unused bip01_l_finger2nub
+    100292: unused bip01_l_finger2nub_end
+    100294: unused bip01_l_finger3nub
+    100296: unused bip01_l_finger3nub_end
+    100298: unused bip01_l_finger4nub
+    100300: unused bip01_l_finger4nub_end
+    100302: unused bip01_l_foretwist
+    100304: unused bip01_l_foretwist1
+    100306: unused bip01_l_foretwist1_end
+    100308: unused bip01_l_toe0nub
+    100310: unused bip01_l_toe0nub_end
+    100312: unused bip01_lcalftwist
+    100314: unused bip01_lcalftwist1
+    100316: unused bip01_lcalftwist1_end
+    100318: unused bip01_lthightwist
+    100320: unused bip01_lthightwist1
+    100322: unused bip01_lthightwist1_end
+    100324: unused bip01_luparmtwist
+    100326: unused bip01_luparmtwist1
+    100328: unused bip01_luparmtwist1_end
+    100330: unused bip01_pelvis
+    100332: unused bip01_r_finger0nub
+    100334: unused bip01_r_finger0nub_end
+    100336: unused bip01_r_finger1nub
+    100338: unused bip01_r_finger1nub_end
+    100340: unused bip01_r_finger2nub
+    100342: unused bip01_r_finger2nub_end
+    100344: unused bip01_r_finger3nub
+    100346: unused bip01_r_finger3nub_end
+    100348: unused bip01_r_finger4nub
+    100350: unused bip01_r_finger4nub_end
+    100352: unused bip01_r_foretwist
+    100354: unused bip01_r_foretwist1
+    100356: unused bip01_r_foretwist1_end
+    100358: unused bip01_r_toe0nub
+    100360: unused bip01_r_toe0nub_end
+    100362: unused bip01_rcalftwist
+    100364: unused bip01_rcalftwist1
+    100366: unused bip01_rcalftwist1_end
+    100368: unused bip01_rthightwist
+    100370: unused bip01_rthightwist1
+    100372: unused bip01_rthightwist1_end
+    100374: unused bip01_ruparmtwist
+    100376: unused bip01_ruparmtwist1
+    100378: unused bip01_ruparmtwist1_end
+    100380: unused gundummy
+    100382: unused gundummy02
+    100384: unused gundummy02_end
+    100386: unused gundummy_end
+    100388: //RootNode
+    400000: 24_CivilianFemaleAliceHeadMIC_0.25_0_0
+    400002: 24_CivilianFemaleAliceLegsMIC_0.25_0_0
+    400004: 24_CivilianFemaleAliceTorsoMIC_0.25_0_0
+    400006: 25_CivilianFemaleAliceHairMIC_0.25_0_0
+    400008: 5_CivilianFemaleAliceEyeMIC_1_0_0
+    400010: arm left elbow
+    400012: arm left finger 1a
+    400014: arm left finger 1b
+    400016: arm left finger 1c
+    400018: arm left finger 2a
+    400020: arm left finger 2b
+    400022: arm left finger 2c
+    400024: arm left finger 3a
+    400026: arm left finger 3b
+    400028: arm left finger 3c
+    400030: arm left finger 4a
+    400032: arm left finger 4b
+    400034: arm left finger 4c
+    400036: arm left finger 5a
+    400038: arm left finger 5b
+    400040: arm left finger 5c
+    400042: arm left shoulder 1
+    400044: arm left shoulder 2
+    400046: arm left wrist
+    400048: arm right elbow
+    400050: arm right finger 1a
+    400052: arm right finger 1b
+    400054: arm right finger 1c
+    400056: arm right finger 2a
+    400058: arm right finger 2b
+    400060: arm right finger 2c
+    400062: arm right finger 3a
+    400064: arm right finger 3b
+    400066: arm right finger 3c
+    400068: arm right finger 4a
+    400070: arm right finger 4b
+    400072: arm right finger 4c
+    400074: arm right finger 5a
+    400076: arm right finger 5b
+    400078: arm right finger 5c
+    400080: arm right shoulder 1
+    400082: arm right shoulder 2
+    400084: arm right wrist
+    400086: Armature
+    400088: Camera
+    400090: head cheek left 1
+    400092: head cheek left 1_end
+    400094: head cheek left 2
+    400096: head cheek left 2_end
+    400098: head cheek left 3
+    400100: head cheek left 3_end
+    400102: head cheek left 4
+    400104: head cheek left 4_end
+    400106: head cheek left 5
+    400108: head cheek left 5_end
+    400110: head cheek right 1
+    400112: head cheek right 1_end
+    400114: head cheek right 2
+    400116: head cheek right 2_end
+    400118: head cheek right 3
+    400120: head cheek right 3_end
+    400122: head cheek right 4
+    400124: head cheek right 4_end
+    400126: head cheek right 5
+    400128: head cheek right 5_end
+    400130: head eyeball left
+    400132: head eyeball left_end
+    400134: head eyeball right
+    400136: head eyeball right_end
+    400138: head eyebrow left 1
+    400140: head eyebrow left 1_end
+    400142: head eyebrow left 2
+    400144: head eyebrow left 2_end
+    400146: head eyebrow left 3
+    400148: head eyebrow left 3_end
+    400150: head eyebrow right 1
+    400152: head eyebrow right 1_end
+    400154: head eyebrow right 2
+    400156: head eyebrow right 2_end
+    400158: head eyebrow right 3
+    400160: head eyebrow right 3_end
+    400162: head eyebrows middle
+    400164: head eyebrows middle_end
+    400166: head eyelid lower left
+    400168: head eyelid lower left_end
+    400170: head eyelid lower right
+    400172: head eyelid lower right_end
+    400174: head eyelid upper left
+    400176: head eyelid upper left_end
+    400178: head eyelid upper right
+    400180: head eyelid upper right_end
+    400182: head forehead left
+    400184: head forehead left_end
+    400186: head forehead right
+    400188: head forehead right_end
+    400190: head jaw
+    400192: head jaw_end
+    400194: head lip lower left
+    400196: head lip lower left_end
+    400198: head lip lower middle
+    400200: head lip lower middle_end
+    400202: head lip lower right
+    400204: head lip lower right_end
+    400206: head lip upper left
+    400208: head lip upper left_end
+    400210: head lip upper middle
+    400212: head lip upper middle_end
+    400214: head lip upper right
+    400216: head lip upper right_end
+    400218: head mouth corner left
+    400220: head mouth corner left_end
+    400222: head mouth corner right
+    400224: head mouth corner right_end
+    400226: head neck lower
+    400228: head neck upper
+    400230: head nose nostril left
+    400232: head nose nostril left_end
+    400234: head nose nostril right
+    400236: head nose nostril right_end
+    400238: head nose tip
+    400240: head nose tip_end
+    400242: head tongue 1
+    400244: head tongue 2
+    400246: head tongue 2_end
+    400248: Lamp
+    400250: leg left ankle
+    400252: leg left knee
+    400254: leg left thigh
+    400256: leg left toes
+    400258: leg right ankle
+    400260: leg right knee
+    400262: leg right thigh
+    400264: leg right toes
+    400266: root ground
+    400268: root hips
+    400270: spine lower
+    400272: spine middle
+    400274: spine shoulders
+    400276: spine upper
+    400278: unused bip01_headnub
+    400280: unused bip01_headnub_end
+    400282: unused bip01_l_finger0nub
+    400284: unused bip01_l_finger0nub_end
+    400286: unused bip01_l_finger1nub
+    400288: unused bip01_l_finger1nub_end
+    400290: unused bip01_l_finger2nub
+    400292: unused bip01_l_finger2nub_end
+    400294: unused bip01_l_finger3nub
+    400296: unused bip01_l_finger3nub_end
+    400298: unused bip01_l_finger4nub
+    400300: unused bip01_l_finger4nub_end
+    400302: unused bip01_l_foretwist
+    400304: unused bip01_l_foretwist1
+    400306: unused bip01_l_foretwist1_end
+    400308: unused bip01_l_toe0nub
+    400310: unused bip01_l_toe0nub_end
+    400312: unused bip01_lcalftwist
+    400314: unused bip01_lcalftwist1
+    400316: unused bip01_lcalftwist1_end
+    400318: unused bip01_lthightwist
+    400320: unused bip01_lthightwist1
+    400322: unused bip01_lthightwist1_end
+    400324: unused bip01_luparmtwist
+    400326: unused bip01_luparmtwist1
+    400328: unused bip01_luparmtwist1_end
+    400330: unused bip01_pelvis
+    400332: unused bip01_r_finger0nub
+    400334: unused bip01_r_finger0nub_end
+    400336: unused bip01_r_finger1nub
+    400338: unused bip01_r_finger1nub_end
+    400340: unused bip01_r_finger2nub
+    400342: unused bip01_r_finger2nub_end
+    400344: unused bip01_r_finger3nub
+    400346: unused bip01_r_finger3nub_end
+    400348: unused bip01_r_finger4nub
+    400350: unused bip01_r_finger4nub_end
+    400352: unused bip01_r_foretwist
+    400354: unused bip01_r_foretwist1
+    400356: unused bip01_r_foretwist1_end
+    400358: unused bip01_r_toe0nub
+    400360: unused bip01_r_toe0nub_end
+    400362: unused bip01_rcalftwist
+    400364: unused bip01_rcalftwist1
+    400366: unused bip01_rcalftwist1_end
+    400368: unused bip01_rthightwist
+    400370: unused bip01_rthightwist1
+    400372: unused bip01_rthightwist1_end
+    400374: unused bip01_ruparmtwist
+    400376: unused bip01_ruparmtwist1
+    400378: unused bip01_ruparmtwist1_end
+    400380: unused gundummy
+    400382: unused gundummy02
+    400384: unused gundummy02_end
+    400386: unused gundummy_end
+    400388: //RootNode
+    2000000: Camera
+    2100000: 5_CivilianFemaleAliceEyeMIC_1_0_0
+    2100002: 25_CivilianFemaleAliceHairMIC_0.25_0_0
+    2100004: 24_CivilianFemaleAliceTorsoMIC_0.25_0_0
+    2100006: 24_CivilianFemaleAliceLegsMIC_0.25_0_0
+    2100008: 24_CivilianFemaleAliceHeadMIC_0.25_0_0
+    4300000: 5_CivilianFemaleAliceEyeMIC_1_0_0
+    4300002: 25_CivilianFemaleAliceHairMIC_0.25_0_0
+    4300004: 24_CivilianFemaleAliceTorsoMIC_0.25_0_0
+    4300006: 24_CivilianFemaleAliceLegsMIC_0.25_0_0
+    4300008: 24_CivilianFemaleAliceHeadMIC_0.25_0_0
+    9500000: //RootNode
+    10800000: Lamp
+    13700000: 24_CivilianFemaleAliceHeadMIC_0.25_0_0
+    13700002: 24_CivilianFemaleAliceLegsMIC_0.25_0_0
+    13700004: 24_CivilianFemaleAliceTorsoMIC_0.25_0_0
+    13700006: 25_CivilianFemaleAliceHairMIC_0.25_0_0
+    13700008: 5_CivilianFemaleAliceEyeMIC_1_0_0
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,13 @@
+plusieurs maps 
+	rue detuite sirie
+pose de mines aleatoir
+
+ajouter logo sur le detecteur
+
+ajouter fleche au dessus de la victime
+
+explosion si on marche sur une mine
+
+ajouter planneau sur la map avec avertissement champ de mine
+
+faire une version non VR 

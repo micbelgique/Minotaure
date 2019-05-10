@@ -1,0 +1,23 @@
+# Blender MTL File: 'right.blend'
+# Material Count: 2
+
+newmtl DefaultMaterial.000
+Ns 92.156863
+Ka 0.050000 0.050000 0.050000
+Kd 0.600000 0.600000 0.600000
+Ks 0.600000 0.600000 0.600000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl defaultMat.001
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\hackinthewoods\hackinthewoods\MineAuthor\Assets\Objects\left-hand\hand_mapNew.jpg
